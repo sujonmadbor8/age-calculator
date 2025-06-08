@@ -2,19 +2,19 @@
   background: white;
   padding: 50px 30px;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0);
   max-width: 400px;
   width: 100%;
   text-align: center;
   margin: 100px auto 0;
-  border: 1px solid transparent;
+  border: 1px solid rgb(228, 228, 228);
   transition: box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
 }
 
 .card:hover {
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   transform: translateY(-5px) scale(1.02);
-  border-color: #ccc;
+  border-color: #d3d3d3;
 }
 
 .card h2 {
