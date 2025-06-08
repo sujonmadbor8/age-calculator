@@ -1,0 +1,85 @@
+.card {
+  background: white;
+  padding: 50px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 100px;
+  border: 1px solid transparent;
+  transition: all 0.4s;
+}
+
+.card:hover {
+  box-shadow: 0 10px 25px white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.card label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.card input[type="date"] {
+  padding: 10px;
+  width: 95%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.card button {
+  background-color: #000000;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #4338ca;
+}
+
+.card #result {
+  margin-top: 20px;
+  margin-bottom: -25px;
+  padding: 15px 10px;
+  font-weight: bold;
+  color: #000;
+  font-size: 20px;
+  background-color: #ffa500;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.card #result.show {
+  margin-bottom: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* .card #result.show.show_w {
+        background-color: #dc3545;
+        color: #fff;
+      } */
+
+@media (max-width: 767px) {
+  .card {
+    width: 80%;
+  }
+}
