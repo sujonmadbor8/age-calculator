@@ -2,6 +2,8 @@ document.getElementById("age_cal").addEventListener("click", function () {
   const dob = document.getElementById("dob").value;
   const result = document.getElementById("result");
 
+  result.classList.remove("show", "show_w");
+
   if (!dob) {
     result.textContent = "Please enter a valid date of birth.";
     result.classList.add("show");
@@ -15,17 +17,15 @@ document.getElementById("age_cal").addEventListener("click", function () {
   birthDate.setHours(0, 0, 0, 0);
   today.setHours(0, 0, 0, 0);
 
-  if (birthDate >= today) {
+  if (birthDate >= today || isNaN(birthDate.getTime())) {
     result.textContent = "Add a valid date (must be at least 1 day old).";
     result.classList.add("show", "show_w");
     return;
   }
 
-  // Difference in total days
   const diffTime = today - birthDate;
   const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
-  // Start with base date difference
   let years = today.getFullYear() - birthDate.getFullYear();
   let months = today.getMonth() - birthDate.getMonth();
   let days = today.getDate() - birthDate.getDate();
@@ -41,7 +41,6 @@ document.getElementById("age_cal").addEventListener("click", function () {
     months += 12;
   }
 
-  // Force display of true days if under 1 month
   if (diffDays < 31) {
     years = 0;
     months = 0;
@@ -50,25 +49,8 @@ document.getElementById("age_cal").addEventListener("click", function () {
 
   result.textContent = `Your age is: ${years} ${
     years === 1 ? "year" : "years"
-  } ${months} ${months === 1 ? "month" : "months"} ${days} ${
+  }, ${months} ${months === 1 ? "month" : "months"}, and ${days} ${
     days === 1 ? "day" : "days"
   }.`;
+  result.classList.add("show");
 });
-
-// document.getElementById("getUserBtn").addEventListener("click", async () => {
-//   const res = await fetch("https://randomuser.me/api");
-//   const data = await res.json();
-
-//   const user = data.results[0];
-//   const photo = user.picture.large;
-//   const name = `${user.name.first} ${user.name.last}`;
-//   const gender = `${user.gender}`;
-//   const email = `${user.email}`;
-
-//   document.getElementById("userInfo").innerHTML = `
-//   <img src="${photo}">
-//   <h1>${name}</h1>
-//   <h2>${gender}</h2>
-//   <a href="mailto: ${email}">${email}</a>
-//   `;
-// });
